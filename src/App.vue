@@ -1,7 +1,7 @@
 <template>
   <div>
     <img alt="Vue logo" src="./assets/logo.png">
-    <SearchBar></SearchBar>
+    <SearchBar v-on:searchTermChange="handleSearchTermChange"></SearchBar>
   </div>
 </template>
 
@@ -12,7 +12,12 @@ export default {
   name: 'App',
   components: {
     SearchBar
-  }
+  },
+  methods: {
+    handleSearchTermChange: function(newTerm) {
+      console.log(newTerm);
+    }
+  },
 }
 </script>
 

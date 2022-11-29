@@ -1,6 +1,9 @@
 <template>
   <div class="search-bar">
-    SearchBar: <input placeholder="SearchBar" v-on:change="onChange"/>
+    <form action="javascript:void(0);">
+    <label for="queryInput">SearchBar:</label><input id="queryInput" placeholder="SearchBar" v-on:change="onChange"/>
+    <button>Search</button>
+  </form>
   </div>
 </template>
 
@@ -10,10 +13,15 @@ export default {
   props: {
     msg: String
   },
+  // data: function() {
+  //   query:""
+  // },
   methods:
   {
     onChange: function(event) {
-      console.log(event.target.value);
+      // this.query = event.target.value;
+      // console.log(this.query);
+      this.$emit('searchTermChange', event.target.value);
     }
   }
 }
