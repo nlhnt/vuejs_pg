@@ -6,7 +6,11 @@
 </template>
 
 <script>
-import SearchBar from './components/SearchBar.vue'
+import axios from 'axios';
+import SearchBar from './components/SearchBar.vue';
+const API_KEY = 'AIzaSyBslo0K2TH7YLH7OQs5rgMxUmsA8Dj26FA';
+// just to cut the error of not being used
+// console.log(API_KEY.split('')[0])
 
 export default {
   name: 'App',
@@ -16,6 +20,16 @@ export default {
   methods: {
     handleSearchTermChange: function(newTerm) {
       console.log(newTerm);
+      console.log(typeof(newTerm));
+      axios.get('https://www.googleapis.com/youtube/v3/search', {
+        params: {
+          key: API_KEY,
+          type: 'video',
+          parent: 'snippet',
+          q: newTerm
+        }
+      }).then(response => console.log(response));
+      // console.log(search_res);
     }
   },
 }
