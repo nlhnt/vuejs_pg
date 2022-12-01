@@ -30,11 +30,12 @@ export default {
     handleSearchTermChange: function(newTerm) {
       console.log(newTerm);
       console.log(typeof(newTerm));
+      // https://developers.google.com/youtube/v3/docs/videos/list#request
       axios.get('https://www.googleapis.com/youtube/v3/search', {
         params: {
           key: API_KEY,
           type: 'video',
-          parent: 'snippet',
+          part: 'snippet',
           q: newTerm
         }
       }).then(response => {

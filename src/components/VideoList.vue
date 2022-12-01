@@ -2,12 +2,24 @@
   <div class="video-list">
     <p>VideoList</p>
     <p>Num of videos: {{ videos.length }}</p>
+    <ul>
+      <VideoListItem
+        v-for="video in videos"
+        :key="video"
+        v-bind:video="video"
+      ></VideoListItem>
+    </ul>
   </div>
 </template>
 
 <script>
+import VideoListItem from './VideoListItem.vue'
+
 export default {
   name: 'VideoList',
+  components: {
+    VideoListItem
+  },
   // props: ['videos']
   props: {
     videos: Array
