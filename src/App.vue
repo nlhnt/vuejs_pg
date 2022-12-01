@@ -2,12 +2,15 @@
   <div>
     <img alt="Vue logo" src="./assets/logo.png">
     <SearchBar v-on:searchTermChange="handleSearchTermChange"></SearchBar>
+    <VideoList v-bind:videos="videos"></VideoList>
+    <!-- <p>Number of videos: {{ videos.length }}</p> -->
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import SearchBar from './components/SearchBar.vue';
+import VideoList from './components/VideoList.vue'
 const API_KEY = 'AIzaSyBslo0K2TH7YLH7OQs5rgMxUmsA8Dj26FA';
 // just to cut the error of not being used
 // console.log(API_KEY.split('')[0])
@@ -15,7 +18,13 @@ const API_KEY = 'AIzaSyBslo0K2TH7YLH7OQs5rgMxUmsA8Dj26FA';
 export default {
   name: 'App',
   components: {
-    SearchBar
+    SearchBar,
+    VideoList
+  },
+  data: function(){ // data() {}
+    return {
+      videos: []
+    };
   },
   methods: {
     handleSearchTermChange: function(newTerm) {
@@ -28,7 +37,11 @@ export default {
           parent: 'snippet',
           q: newTerm
         }
-      }).then(response => console.log(response));
+      }).then(response => {
+        // curly braces only encapsulate and make the formating easier in here
+        this.videos = response.data.items;
+      });
+      // response => console.log(response)
       // console.log(search_res);
     }
   },
