@@ -5,7 +5,7 @@
     <ul>
       <VideoListItem
         v-for="video in videos"
-        :key="video"
+        :key="video.etag"
         v-bind:video="video"
       ></VideoListItem>
     </ul>
