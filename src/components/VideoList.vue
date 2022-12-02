@@ -2,7 +2,7 @@
   <div class="video-list">
     <p>VideoList</p>
     <p>Num of videos: {{ videos.length }}</p>
-    <ul>
+    <ul class="list-group">
       <VideoListItem
         v-for="video in videos"
         :key="video.etag"
@@ -35,7 +35,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
+/* h3 {
   margin: 40px 0 0;
 }
 ul {
@@ -48,5 +48,5 @@ li {
 }
 a {
   color: #42b983;
-}
+} */
 </style>

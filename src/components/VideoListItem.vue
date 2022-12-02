@@ -1,6 +1,6 @@
 <template>
-    <li>
-        <p>VideoListItem: {{ video.snippet.title }}</p>
+    <li class="list-group-item">
+        VideoListItem: {{ video.snippet.title }}
     </li>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
-  <div class="search-bar">
+  <div class="search-bar row align-items-center mx-2">
     <form action="javascript:void(0);">
-    <label for="queryInput">SearchBar:</label><input id="queryInput" placeholder="SearchBar" v-on:change="onChange"/>
-    <button>Search</button>
+    <label class="col" for="queryInput">SearchBar: </label><input id="queryInput" placeholder="SearchBar" v-on:change="onChange" class="col-8"/>
+    <button type="button" class="btn btn-info col">Search</button>
   </form>
   </div>
 </template>
@@ -29,18 +29,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+/* input {
+  width: 75%
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+button {
+  width: 15%
+} */
 </style>

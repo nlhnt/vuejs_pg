@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <img alt="Vue logo" src="./assets/logo.png">
+  <div class="container">
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <SearchBar v-on:searchTermChange="handleSearchTermChange"></SearchBar>
     <VideoList v-bind:videos="videos"></VideoList>
     <!-- <p>Number of videos: {{ videos.length }}</p> -->
