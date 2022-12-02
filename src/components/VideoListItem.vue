@@ -1,6 +1,7 @@
 <template>
     <li class="list-group-item">
-        VideoListItem: {{ video.snippet.title }}
+        <img v-bind:src="video.snippet.thumbnails.default.url"/>
+        {{ video.snippet.title }}
     </li>
 </template>
 
