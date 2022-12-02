@@ -1,7 +1,9 @@
 <template>
-    <li class="list-group-item">
-        <img v-bind:src="video.snippet.thumbnails.default.url"/>
-        {{ video.snippet.title }}
+    <li class="list-group-item media d-flex">
+        <img class="mr-3" v-bind:src="thumbnailUrl"/>
+        <div class="media-body">
+            {{ video.snippet.title }}
+        </div>
     </li>
 </template>
 
@@ -10,7 +12,22 @@ export default {
     name: 'VideoListItem',
     props: {
         'video': Object
+    },
+    // props: ['video'],
+    computed: {
+        thumbnailUrl() {
+            return this.video.snippet.thumbnails.default.url;
+        }
     }
-    // props: ['video']
 };
 </script>
+
+<style>
+li {
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #eee;
+}
+</style>

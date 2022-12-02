@@ -1,5 +1,5 @@
 <template>
-  <div class="video-list">
+  <div class="row video-list align-items-start">
     <p>VideoList</p>
     <p>Num of videos: {{ videos.length }}</p>
     <ul class="list-group">
