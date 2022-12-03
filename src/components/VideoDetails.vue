@@ -1,8 +1,13 @@
 <template>
     <!-- v-if solves the issue when no video is selected -->
     <div v-if="selectedVideo">
-        Video Detail
-        {{ selectedVideo.snippet.title }}
+        <div>
+            <iframe v-bind:src="embeddedURL" frameborder="1"></iframe>
+        </div>
+        <div class="details">
+            <h4>{{ selectedVideo.snippet.title }}</h4>
+            <p>{{ selectedVideo.snippet.description }}</p>
+        </div>
     </div>
 </template>
 
@@ -18,6 +23,12 @@ export default {
         },
         videoTitle() {
             return this.video.snippet.title;
+        },
+        embeddedURL() {
+            // const videoId=this.video.id.videoId;
+            const { videoId } = this.selectedVideo.id;
+            // return "https://www.youtube.com/embed/" + videoId;
+            return `https://www.youtube.com/embed/${videoId}`;
         }
     },
     methods: {
@@ -25,5 +36,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.details {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 </style>
