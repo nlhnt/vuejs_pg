@@ -2,6 +2,7 @@
   <div class="container">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <SearchBar v-on:searchTermChange="handleSearchTermChange"></SearchBar>
+    <VideoDetails v-bind:selectedVideo="selectedVideo"></VideoDetails>
     <VideoList v-bind:videos="videos" v-on:videoSelectEvent="handleVideoSelectEvent"></VideoList>
     <!-- <p>Number of videos: {{ videos.length }}</p> -->
   </div>
@@ -10,7 +11,8 @@
 <script>
 import axios from 'axios';
 import SearchBar from './components/SearchBar.vue';
-import VideoList from './components/VideoList.vue'
+import VideoList from './components/VideoList.vue';
+import VideoDetails from './components/VideoDetails.vue';
 const API_KEY = 'AIzaSyBslo0K2TH7YLH7OQs5rgMxUmsA8Dj26FA';
 // just to cut the error of not being used
 // console.log(API_KEY.split('')[0])
@@ -19,11 +21,13 @@ export default {
   name: 'App',
   components: {
     SearchBar,
-    VideoList
+    VideoList,
+    VideoDetails
   },
   data: function(){ // data() {}
     return {
-      videos: []
+      videos: [],
+      selectedVideo: null,
     };
   },
   methods: {
@@ -46,7 +50,8 @@ export default {
       // console.log(search_res);
     },
     handleVideoSelectEvent: function(selectedVideo) {
-      console.log(selectedVideo.snippet.title)
+      console.log(selectedVideo.snippet.title);
+      this.selectedVideo = selectedVideo;
     }
   },
 }
