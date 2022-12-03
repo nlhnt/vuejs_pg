@@ -1,8 +1,8 @@
 <template>
   <div class="search-bar row align-items-center mx-2">
     <form action="javascript:void(0);">
-    <label class="col" for="queryInput">SearchBar: </label><input id="queryInput" placeholder="SearchBar" v-on:change="onChange" class="col-8"/>
-    <button type="button" class="btn btn-info col">Search</button>
+    <label class="col mx-1" for="queryInput">SearchBar: </label><input id="queryInput" placeholder="SearchBar" v-on:change="onChange" class="col-7"/>
+    <button type="button" class="btn btn-info col mx-1">Search</button>
   </form>
   </div>
 </template>
