@@ -2,8 +2,10 @@
   <div class="container">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <SearchBar v-on:searchTermChange="handleSearchTermChange"></SearchBar>
-    <VideoDetails v-bind:selectedVideo="selectedVideo"></VideoDetails>
-    <VideoList v-bind:videos="videos" v-on:videoSelectEvent="handleVideoSelectEvent"></VideoList>
+    <div class="row">
+      <VideoDetails v-bind:selectedVideo="selectedVideo"></VideoDetails>
+      <VideoList v-bind:videos="videos" v-on:videoSelectEvent="handleVideoSelectEvent"></VideoList>
+    </div>
     <!-- <p>Number of videos: {{ videos.length }}</p> -->
   </div>
 </template>

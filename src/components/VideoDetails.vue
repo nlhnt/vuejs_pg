@@ -1,8 +1,8 @@
 <template>
     <!-- v-if solves the issue when no video is selected -->
-    <div class="row my-2" v-if="selectedVideo">
+    <div class="col-md-8 my-2" v-if="selectedVideo">
         <div class="ratio ratio-16x9">
-            <iframe v-bind:src="embeddedURL" v-bind:title="videoTitle" frameborder="1" allowfullscreen></iframe>
+            <iframe v-bind:src="embeddedURL" v-bind:title="videoTitle" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="details">
             <h4>{{ selectedVideo.snippet.title }}</h4>

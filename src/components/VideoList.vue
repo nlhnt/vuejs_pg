@@ -1,8 +1,8 @@
 <template>
-  <div class="row video-list align-items-start">
+  <div class="video-list align-items-start">
     <p>VideoList</p>
     <p>Num of videos: {{ videos.length }}</p>
-    <ul class="list-group">
+    <ul class="list-group col-md-4">
       <VideoListItem
         v-for="video in videos"
         :key="video.etag"
