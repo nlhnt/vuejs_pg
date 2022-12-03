@@ -7,6 +7,7 @@
         v-for="video in videos"
         :key="video.etag"
         v-bind:video="video"
+        v-on:videoSelectEvent="handleVideoSelectEvent"
       ></VideoListItem>
     </ul>
   </div>
@@ -29,6 +30,9 @@ export default {
   // },
   methods:
   {
+    handleVideoSelectEvent: function(selectedVideo) {
+      this.$emit('videoSelectEvent', selectedVideo)
+    }
   }
 }
 </script>

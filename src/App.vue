@@ -2,7 +2,7 @@
   <div class="container">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <SearchBar v-on:searchTermChange="handleSearchTermChange"></SearchBar>
-    <VideoList v-bind:videos="videos"></VideoList>
+    <VideoList v-bind:videos="videos" v-on:videoSelectEvent="handleVideoSelectEvent"></VideoList>
     <!-- <p>Number of videos: {{ videos.length }}</p> -->
   </div>
 </template>
@@ -44,6 +44,9 @@ export default {
       });
       // response => console.log(response)
       // console.log(search_res);
+    },
+    handleVideoSelectEvent: function(selectedVideo) {
+      console.log(selectedVideo.snippet.title)
     }
   },
 }
